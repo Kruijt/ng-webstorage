@@ -1,24 +1,21 @@
-import {APP_INITIALIZER, ModuleWithProviders, NgModule} from '@angular/core';
-import {SharedModule} from '../shared/module';
-import {Components} from './components';
-import {LocalStorageService, SessionStorageService, StrategyIndex} from '../lib';
+import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
+import { SharedModule } from '../shared/module';
+import { Components } from './components';
+import { LocalStorageService, SessionStorageService, StrategyIndex } from '../lib';
 
 @NgModule({
-	imports: [
-		SharedModule,
-	],
-	exports: [...Components],
-	declarations: [...Components],
-	providers: []
+  imports: [SharedModule],
+  exports: [...Components],
+  declarations: [...Components],
+  providers: []
 })
 export class EagerModule {
-	constructor(storage: LocalStorageService) {
-	}
+  constructor(storage: LocalStorageService) {}
 
-	static forRoot(): ModuleWithProviders {
-		return {
-			ngModule: EagerModule,
-			providers: []
-		};
-	}
+  static forRoot(): ModuleWithProviders<EagerModule> {
+    return {
+      ngModule: EagerModule,
+      providers: []
+    };
+  }
 }

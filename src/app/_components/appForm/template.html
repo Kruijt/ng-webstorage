@@ -1,20 +1,22 @@
 <form [formGroup]="form" novalidate (submit)="submit(form.value, form.valid);">
-	<div>
-		<textarea formControlName="text"></textarea>
-	</div>
-	<div>
-		<button type="submit">submit</button>
-		<button type="button" (click)="clear()">clear</button>
-	</div>
+  <div>
+    <textarea formControlName="text"></textarea>
+  </div>
+  <div>
+    <button type="submit">submit</button>
+    <button type="button" (click)="clear()">clear</button>
+  </div>
 </form>
-<hr>
+<hr />
 <div>
-	<input type="text" [(ngModel)]="sessionBind">
-	<input type="text" [(ngModel)]="localBind">
+  <input type="text" [(ngModel)]="sessionBind" />
+  <input type="text" [(ngModel)]="localBind" />
 </div>
-<hr>
+<hr />
 <div>
-	<div>
-		<button type="button" (click)="randomizeBoundObjectProperty()">randomize object prop</button>
-	</div>
+  <div>
+    <button type="button" (click)="randomizeBoundObjectProperty()">
+      randomize object prop
+    </button>
+  </div>
 </div>

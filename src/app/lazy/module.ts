@@ -1,23 +1,20 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {SharedModule} from '../shared/module';
-import {Routing} from './routing';
-import {Components} from './components';
-import {NgWebstorageModule} from '../lib';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SharedModule } from '../shared/module';
+import { Routing } from './routing';
+import { Components } from './components';
+import { NgWebstorageModule } from '../lib';
 
 @NgModule({
-	imports: [
-		SharedModule,
-		Routing,
-	],
-	exports: [],
-	declarations: [...Components],
-	providers: [],
+  imports: [SharedModule, Routing],
+  exports: [],
+  declarations: [...Components],
+  providers: []
 })
 export class LazyModule {
-	static forRoot(): ModuleWithProviders {
-		return {
-			ngModule: LazyModule,
-			providers: []
-		};
-	}
+  static forRoot(): ModuleWithProviders<LazyModule> {
+    return {
+      ngModule: LazyModule,
+      providers: []
+    };
+  }
 }

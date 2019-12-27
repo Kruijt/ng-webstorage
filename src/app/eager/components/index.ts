@@ -1,4 +1,3 @@
-import {EagerComponent} from './eager/eager';
+import { EagerComponent } from './eager/eager';
 
 export const Components: any[] = [EagerComponent];
-
