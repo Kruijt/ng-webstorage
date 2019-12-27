@@ -22,13 +22,13 @@ Based on: ng-webstorage
 
 ### <a name="gstart">Getting Started</a>
 
-1. Download the library using npm `npm i ng-webstorage`
+1. Download the library using npm `npm i @kruijt/ng-webstorage`
 2. Declare the library in your main module
 
 	```typescript
 	import {NgModule} from '@angular/core';
 	import {BrowserModule} from '@angular/platform-browser';
-	import {NgWebstorageModule} from 'ng-webstorage';
+	import {NgWebstorageModule} from '@kruijt/ng-webstorage';
 
 	@NgModule({
 		declarations: [...],
@@ -38,8 +38,8 @@ Based on: ng-webstorage
 			//NgWebstorageModule.forRoot({ prefix: 'custom', separator: '.', caseSensitive:true }) 
 			// The forRoot method allows to configure the prefix, the separator and the caseSensitive option used by the library
 			// Default values:
-			// prefix: "ng-webstorage"
-			// separator: "|"
+			// prefix: 'kruijt-ng-webstorage'
+			// separator: '|'
 			// caseSensitive: false
 		],
 		bootstrap: [...]
@@ -53,7 +53,7 @@ Based on: ng-webstorage
 
 	```typescript
 	import {Component} from '@angular/core';
-	import {LocalStorageService, SessionStorageService} from 'ng-webstorage';
+	import {LocalStorageService, SessionStorageService} from '@kruijt/ng-webstorage';
 
 	@Component({
 		selector: 'foo',
@@ -71,7 +71,7 @@ Based on: ng-webstorage
 
 	```typescript
 	import {Component} from '@angular/core';
-	import {LocalStorage, SessionStorage} from 'ng-webstorage';
+	import {LocalStorage, SessionStorage} from '@kruijt/ng-webstorage';
 
 	@Component({
 		selector: 'foo',
@@ -98,7 +98,7 @@ Based on: ng-webstorage
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService} from 'ng-webstorage';
+import {LocalStorageService} from '@kruijt/ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -133,7 +133,7 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService} from 'ng-webstorage';
+import {LocalStorageService} from '@kruijt/ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -165,7 +165,7 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService, LocalStorage} from 'ng-webstorage';
+import {LocalStorageService, LocalStorage} from '@kruijt/ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -200,7 +200,7 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService, LocalStorage} from 'ng-webstorage';
+import {LocalStorageService, LocalStorage} from '@kruijt/ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -238,7 +238,7 @@ export class FooComponent {
 #### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorage, SessionStorage} from 'ng-webstorage';
+import {LocalStorage, SessionStorage} from '@kruijt/ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -262,7 +262,7 @@ export class FooComponent {
 #### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorage, SessionStorage} from 'ng-webstorage';
+import {LocalStorage, SessionStorage} from '@kruijt/ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -284,7 +284,7 @@ Consequence, if you change the value of a bound object's property the new model 
 To handle this cases you have to trigger manually the accessor.
 
 ````typescript
-import {LocalStorage} from 'ng-webstorage';
+import {LocalStorage} from '@kruijt/ng-webstorage';
 
 class FooBar {
     @LocalStorage('prop')

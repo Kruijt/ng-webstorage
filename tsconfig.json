@@ -18,7 +18,7 @@
       "dom"
     ],
     "paths": {
-      "ng-webstorage/*": [
+      "@kruijt/ng-webstorage/*": [
         "dist/ng-webstorage/*"
       ]
     }
