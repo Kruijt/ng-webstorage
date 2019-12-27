@@ -1,6 +1,6 @@
 {
   "name": "ng-webstorage",
-  "version": "9.0.0",
+  "version": "9.0.0-rc.7",
   "peerDependencies": {
     "@angular/common": "^9.0.0-rc.7",
     "@angular/core": "^9.0.0-rc.7"
@@ -13,6 +13,7 @@
     "typescript",
     "angular",
     "angular8",
+    "angular9",
     "ng",
     "localstorage",
     "sessionStorage"
