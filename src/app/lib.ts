@@ -1,3 +1,3 @@
-export * from '../../projects/ngx-webstorage/src/public_api';
-//export * from 'ngx-webstorage';
-//export * from '../../dist/ngx-webstorage';
+export * from '../../projects/ng-webstorage/src/public_api';
+//export * from 'ng-webstorage';
+//export * from '../../dist/ng-webstorage';

@@ -1,3 +1,3 @@
-export const DefaultPrefix = 'ngx-webstorage';
+export const DefaultPrefix = 'ng-webstorage';
 export const DefaultSeparator = '|';
 export const DefaultIsCaseSensitive = false;

@@ -1,5 +1,5 @@
 import {ComponentFixture, inject, TestBed} from '@angular/core/testing';
-import {NgxWebstorageModule} from './module';
+import {NgWebstorageModule} from './module';
 import {StrategyIndex} from './services/strategyIndex';
 import {STORAGE_STRATEGIES} from './strategies';
 import {StorageStrategy} from './core/interfaces/storageStrategy';
@@ -26,7 +26,7 @@ describe('Module', () => {
 
 		TestBed.configureTestingModule({
 			imports: [
-				NgxWebstorageModule.forRoot()
+				NgWebstorageModule.forRoot()
 			],
 			providers: [
 				{provide: STORAGE_STRATEGIES, useFactory: () => strategyStub, multi: true},

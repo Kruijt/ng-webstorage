@@ -1,5 +1,5 @@
 /*
- * Public API Surface of ngx-webstorage
+ * Public API Surface of ng-webstorage
  */
 
 export * from './lib/constants/strategy';

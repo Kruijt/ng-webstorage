@@ -5,7 +5,7 @@ about: Create a report to help us improve
 ---
 
 **Versions (please complete the following information):**
- - NgxWebstorage: [e.g. 3.0.x]
+ - NgWebstorage: [e.g. 9.0.x]
  - Angular: [e.g. 7.2.0]
 
 **Describe the bug**

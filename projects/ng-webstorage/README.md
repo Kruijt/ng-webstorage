@@ -1,4 +1,4 @@
-# ngx-webstorage
+# ng-webstorage
 ### Local and session storage - Angular service
 This library provides an easy to use service to manage the web storages (local and session) from your Angular application.
 It provides also two decorators to synchronize the component attributes and the web storages.
@@ -21,30 +21,30 @@ It provides also two decorators to synchronize the component attributes and the 
 ### Migrate from v2.x to the v3
 
 1. Update your project to Angular 7+
-2. Rename the module usages by <b>NgxWebstorageModule.forRoot()</b> *(before: Ng2Webstorage)*
+2. Rename the module usages by <b>NgWebstorageModule.forRoot()</b>
 > The forRoot is now mandatory in the root module even if you don't need to configure the library
 
 ------------
 
 ### <a name="gstart">Getting Started</a>
 
-1. Download the library using npm `npm install --save ngx-webstorage`
+1. Download the library using npm `npm install --save ng-webstorage`
 2. Declare the library in your main module
 
 	```typescript
 	import {NgModule} from '@angular/core';
 	import {BrowserModule} from '@angular/platform-browser';
-	import {NgxWebstorageModule} from 'ngx-webstorage';
+	import {NgWebstorageModule} from 'ng-webstorage';
 
 	@NgModule({
 		declarations: [...],
 		imports: [
 			BrowserModule,
-			NgxWebstorageModule.forRoot(),
-			//NgxWebstorageModule.forRoot({ prefix: 'custom', separator: '.', caseSensitive:true }) 
+			NgWebstorageModule.forRoot(),
+			//NgWebstorageModule.forRoot({ prefix: 'custom', separator: '.', caseSensitive:true }) 
 			// The forRoot method allows to configure the prefix, the separator and the caseSensitive option used by the library
 			// Default values:
-			// prefix: "ngx-webstorage"
+			// prefix: "ng-webstorage"
 			// separator: "|"
 			// caseSensitive: false
 		],
@@ -59,7 +59,7 @@ It provides also two decorators to synchronize the component attributes and the 
 
 	```typescript
 	import {Component} from '@angular/core';
-	import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+	import {LocalStorageService, SessionStorageService} from 'ng-webstorage';
 
 	@Component({
 		selector: 'foo',
@@ -79,7 +79,7 @@ It provides also two decorators to synchronize the component attributes and the 
 
 	```typescript
 	import {Component} from '@angular/core';
-	import {LocalStorage, SessionStorage} from 'ngx-webstorage';
+	import {LocalStorage, SessionStorage} from 'ng-webstorage';
 
 	@Component({
 		selector: 'foo',
@@ -108,7 +108,7 @@ It provides also two decorators to synchronize the component attributes and the 
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService} from 'ngx-webstorage';
+import {LocalStorageService} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -144,7 +144,7 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService} from 'ngx-webstorage';
+import {LocalStorageService} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -176,7 +176,7 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService, LocalStorage} from 'ngx-webstorage';
+import {LocalStorageService, LocalStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -206,7 +206,7 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component, OnInit} from '@angular/core';
-import {LocalStorageService, LocalStorage} from 'ngx-webstorage';
+import {LocalStorageService, LocalStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -240,7 +240,7 @@ export class FooComponent implements OnInit {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService, LocalStorage} from 'ngx-webstorage';
+import {LocalStorageService, LocalStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -280,7 +280,7 @@ export class FooComponent {
 #### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorage, SessionStorage} from 'ngx-webstorage';
+import {LocalStorage, SessionStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -306,7 +306,7 @@ export class FooComponent {
 #### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorage, SessionStorage} from 'ngx-webstorage';
+import {LocalStorage, SessionStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -325,12 +325,12 @@ export class FooComponent {
 
 - *Serialization doesn't work for objects:* 
 
-NgxWebstorage's decorators are based upon accessors so the update trigger only on assignation. 
+NgWebstorage's decorators are based upon accessors so the update trigger only on assignation. 
 Consequence, if you change the value of a bound object's property the new model will not be store properly. The same thing will happen with a push into a bound array. 
 To handle this cases you have to trigger manually the accessor.
 
 ````typescript
-import {LocalStorage} from 'ngx-webstorage';
+import {LocalStorage} from 'ng-webstorage';
 
 class FooBar {
 

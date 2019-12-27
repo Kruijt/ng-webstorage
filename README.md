@@ -1,10 +1,10 @@
-# ngx-webstorage
+# ng-webstorage
 
 ### Local and session storage - Angular service
 This library provides an easy to use service to manage the web storages (local and session) from your Angular application.
 It provides also two decorators to synchronize the component attributes and the web storages.
 
-[![CircleCI](https://circleci.com/gh/PillowPillow/ng2-webstorage/tree/master.svg?style=svg)](https://circleci.com/gh/PillowPillow/ng2-webstorage/tree/master)
+Based on: ng-webstorage
 ------------
 
 #### Index:
@@ -20,33 +20,25 @@ It provides also two decorators to synchronize the component attributes and the 
 
 ------------
 
-### Migrate from v2.x to the v3
-
-1. Update your project to Angular 7+
-2. Rename the module usages by <b>NgxWebstorageModule.forRoot()</b> *(before: Ng2Webstorage)*
-> The forRoot is now mandatory in the root module even if you don't need to configure the library
-
-------------
-
 ### <a name="gstart">Getting Started</a>
 
-1. Download the library using npm `npm install --save ngx-webstorage`
+1. Download the library using npm `npm i ng-webstorage`
 2. Declare the library in your main module
 
 	```typescript
 	import {NgModule} from '@angular/core';
 	import {BrowserModule} from '@angular/platform-browser';
-	import {NgxWebstorageModule} from 'ngx-webstorage';
+	import {NgWebstorageModule} from 'ng-webstorage';
 
 	@NgModule({
 		declarations: [...],
 		imports: [
 			BrowserModule,
-			NgxWebstorageModule.forRoot(),
-			//NgxWebstorageModule.forRoot({ prefix: 'custom', separator: '.', caseSensitive:true }) 
+			NgWebstorageModule.forRoot(),
+			//NgWebstorageModule.forRoot({ prefix: 'custom', separator: '.', caseSensitive:true }) 
 			// The forRoot method allows to configure the prefix, the separator and the caseSensitive option used by the library
 			// Default values:
-			// prefix: "ngx-webstorage"
+			// prefix: "ng-webstorage"
 			// separator: "|"
 			// caseSensitive: false
 		],
@@ -61,37 +53,33 @@ It provides also two decorators to synchronize the component attributes and the 
 
 	```typescript
 	import {Component} from '@angular/core';
-	import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+	import {LocalStorageService, SessionStorageService} from 'ng-webstorage';
 
 	@Component({
 		selector: 'foo',
 		template: `foobar`
 	})
 	export class FooComponent {
-
-		constructor(private localSt:LocalStorageService) {}
+		constructor(private storage: LocalStorageService) {}
 
 		ngOnInit() {
-			this.localSt.observe('key')
+			this.storage.observe('key')
 				.subscribe((value) => console.log('new value', value));
 		}
-
 	}
 	```
 
 	```typescript
 	import {Component} from '@angular/core';
-	import {LocalStorage, SessionStorage} from 'ngx-webstorage';
+	import {LocalStorage, SessionStorage} from 'ng-webstorage';
 
 	@Component({
 		selector: 'foo',
 		template: `{{boundValue}}`,
 	})
 	export class FooComponent {
-
 		@LocalStorage()
 		public boundValue;
-
 	}
 	```
 
@@ -110,7 +98,7 @@ It provides also two decorators to synchronize the component attributes and the 
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService} from 'ngx-webstorage';
+import {LocalStorageService} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -120,10 +108,9 @@ import {LocalStorageService} from 'ngx-webstorage';
 	`,
 })
 export class FooComponent {
-
     attribute;
 
-    constructor(private storage:LocalStorageService) {}
+    constructor(private storage: LocalStorageService) {}
 
     saveValue() {
       this.storage.store('boundValue', this.attribute);
@@ -146,7 +133,7 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService} from 'ngx-webstorage';
+import {LocalStorageService} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -159,7 +146,7 @@ export class FooComponent {
 
     attribute;
 
-    constructor(private storage:LocalStorageService) {}
+    constructor(private storage: LocalStorageService) {}
 
     retrieveValue() {
       this.attribute = this.storage.retrieve('boundValue');
@@ -178,7 +165,7 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService, LocalStorage} from 'ngx-webstorage';
+import {LocalStorageService, LocalStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
@@ -188,17 +175,15 @@ import {LocalStorageService, LocalStorage} from 'ngx-webstorage';
 	`,
 })
 export class FooComponent {
-
     @LocalStorage('boundValue')
     boundAttribute;
 
-    constructor(private storage:LocalStorageService) {}
+    constructor(private storage: LocalStorageService) {}
 
     clearItem() {
       this.storage.clear('boundValue');
       //this.storage.clear(); //clear all the managed storage items
     }
-
 }
 ````
 
@@ -215,18 +200,17 @@ export class FooComponent {
 ##### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorageService, LocalStorage} from 'ngx-webstorage';
+import {LocalStorageService, LocalStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
 	template: `{{boundAttribute}}`,
 })
 export class FooComponent {
-
     @LocalStorage('boundValue')
     boundAttribute;
 
-    constructor(private storage:LocalStorageService) {}
+    constructor(private storage: LocalStorageService) {}
 
     ngOnInit() {
       this.storage.observe('boundValue')
@@ -234,7 +218,6 @@ export class FooComponent {
           console.log(newValue);
         })
     }
-
 }
 ````
 
@@ -255,17 +238,15 @@ export class FooComponent {
 #### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorage, SessionStorage} from 'ngx-webstorage';
+import {LocalStorage, SessionStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
 	template: `{{boundAttribute}}`,
 })
 export class FooComponent {
-
 	@LocalStorage()
 	public boundAttribute;
-
 }
 ````
 
@@ -281,17 +262,15 @@ export class FooComponent {
 #### Usage:
 ````typescript
 import {Component} from '@angular/core';
-import {LocalStorage, SessionStorage} from 'ngx-webstorage';
+import {LocalStorage, SessionStorage} from 'ng-webstorage';
 
 @Component({
 	selector: 'foo',
 	template: `{{randomName}}`,
 })
 export class FooComponent {
-
 	@SessionStorage('AnotherBoundAttribute')
 	public randomName;
-
 }
 ````
 
@@ -300,15 +279,14 @@ export class FooComponent {
 
 - *Serialization doesn't work for objects:* 
 
-NgxWebstorage's decorators are based upon accessors so the update trigger only on assignation. 
+NgWebstorage's decorators are based upon accessors so the update trigger only on assignation. 
 Consequence, if you change the value of a bound object's property the new model will not be store properly. The same thing will happen with a push into a bound array. 
 To handle this cases you have to trigger manually the accessor.
 
 ````typescript
-import {LocalStorage} from 'ngx-webstorage';
+import {LocalStorage} from 'ng-webstorage';
 
 class FooBar {
-
     @LocalStorage('prop')
     myArray;
 
@@ -316,7 +294,6 @@ class FooBar {
         this.myArray.push('foobar');
         this.myArray = this.myArray; //does the trick
     }
-
 }
 ````
 

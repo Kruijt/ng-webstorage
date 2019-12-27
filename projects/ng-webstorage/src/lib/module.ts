@@ -3,10 +3,10 @@ import {LocalStorageProvider, SessionStorageProvider} from './core/nativeStorage
 import {Services} from './services/index';
 import {Strategies} from './strategies/index';
 import {StrategyIndex} from './services/strategyIndex';
-import {NgxWebstorageConfiguration} from './config';
+import {NgWebstorageConfiguration} from './config';
 import {StorageKeyManager} from './helpers/storageKeyManager';
 
-export const LIB_CONFIG: InjectionToken<NgxWebstorageConfiguration> = new InjectionToken<NgxWebstorageConfiguration>('ngx_webstorage_config');
+export const LIB_CONFIG: InjectionToken<NgWebstorageConfiguration> = new InjectionToken<NgWebstorageConfiguration>('ng_webstorage_config');
 
 export function appInit(index: StrategyIndex) {
 	index.indexStrategies();
@@ -14,16 +14,16 @@ export function appInit(index: StrategyIndex) {
 }
 
 @NgModule({})
-export class NgxWebstorageModule {
+export class NgWebstorageModule {
 
-	constructor(index: StrategyIndex, @Optional() @Inject(LIB_CONFIG) config: NgxWebstorageConfiguration) {
+	constructor(index: StrategyIndex, @Optional() @Inject(LIB_CONFIG) config: NgWebstorageConfiguration) {
 		if (config) StorageKeyManager.consumeConfiguration(config);
-		else console.error('NgxWebstorage : Possible misconfiguration (The forRoot method usage is mandatory since the 3.0.0)');
+		else console.error('NgWebstorage : Possible misconfiguration (The forRoot method usage is mandatory since the 3.0.0)');
 	}
 
-	static forRoot(config: NgxWebstorageConfiguration = {}): ModuleWithProviders<NgxWebstorageModule> {
+	static forRoot(config: NgWebstorageConfiguration = {}): ModuleWithProviders<NgWebstorageModule> {
 		return {
-			ngModule: NgxWebstorageModule,
+			ngModule: NgWebstorageModule,
 			providers: [
 				{
 					provide: LIB_CONFIG,

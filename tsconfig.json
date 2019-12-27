@@ -18,8 +18,8 @@
       "dom"
     ],
     "paths": {
-      "ngx-webstorage/*": [
-        "dist/ngx-webstorage/*"
+      "ng-webstorage/*": [
+        "dist/ng-webstorage/*"
       ]
     }
   }
